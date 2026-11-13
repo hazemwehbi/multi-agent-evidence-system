@@ -12,7 +12,7 @@ The final checks used Windows and CPython 3.13.1. A fresh base virtual environme
 | Northgate run through a live localhost Uvicorn process | Multipart upload returned 303. The workflow produced 6 attempts and 12 messages, with one supported finding, two conflicts, and recommendation abstention. |
 | Second Uvicorn process and separate CLI trace | The persisted report and source page reopened. The budget claim resolved to finance-record.txt at offsets [0, 55). |
 
-The screenshot review used Chrome against the localhost routes. A pattern scan of shareable text files found no common OpenAI key, AWS access key, or private-key markers. Demonstration documents are fictional. Virtual environments, databases, and local dotenv files are excluded from Git. Both archived benchmark JSON hashes were unchanged. The repository was initialized on main and has no commits, so the project files remain untracked.
+The screenshot review used Chrome against the localhost routes. A pattern scan of shareable text files found no common OpenAI key, AWS access key, or private-key markers. Demonstration documents are fictional. Virtual environments, databases, and local dotenv files are excluded from Git. Both archived benchmark JSON hashes were unchanged. The initial release is recorded in commit `5eefd9b`.
 
 ## Milestone 5 benchmark
 
@@ -20,7 +20,7 @@ The [evaluation report](../reports/EVALUATION.md) documents the fixed-case verif
 
 - `uv run --locked --extra openai --offline --cache-dir .venv/uv-cache pytest -q` returned **50 passed** in 9.43 seconds.
 - The base-environment equivalent without `--extra openai` returned **49 passed, 1 skipped** in 7.30 seconds. Starlette emitted its test-client transport deprecation warning.
-- `python -m evaluation.run --repeats 3 --output reports/evaluation-v1-offline.json` generated the recorded results using the project virtual environment.
+- The original run used the project virtual environment and produced the archived v1 results. See the [v1 reproduction notes](../reports/EVALUATION.md#reproduction) for the required verifier revision and a separate rerun output path.
 
 Run `uv run --locked pytest` for the base suite, or `uv run --locked --extra openai pytest` to include the mocked OpenAI adapter test. The suite clears MAEDS and OpenAI environment settings and runs from temporary directories to isolate local dotenv files.
 

@@ -4,8 +4,11 @@
 credentials.json
 secrets.json
 secrets/
+*.local.env
 *.pem
 *.key
+*.p12
+*.pfx
 .venv/
 venv/
 __pycache__/
@@ -23,4 +26,9 @@ dist/
 *.db*
 *.tmp
 *.log
+*.swp
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
 reports/reproduction-offline.json

@@ -2,6 +2,8 @@
 
 Northgate Library is a fictional scenario. The finance record gives the equipment pilot budget and says the pilot was approved. The committee minutes say it was rejected on the same date. The scenario supplies no rule giving one source precedence.
 
+This illustrates an evidence review a bid team might perform before drafting a tender response. The budget shows how a supported statement can be traced to its exact source. The conflicting approval records show where a reviewer would need to reconcile sources before using a status claim. The walkthrough uses the generic document workflow and fictional records. [Proposed tender application](TECHNICAL_REPORT.md#proposed-business-use-case)
+
 ## Browser walkthrough
 
 From the repository root, run the [setup commands](../README.md), then start the localhost server.

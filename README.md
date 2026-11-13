@@ -1,6 +1,12 @@
 # Multi-Agent Evidence and Decision System
 
-MAEDS runs five agents over UTF-8 TXT and Markdown files, verifies candidate claims against stored passages, and saves the decision and run trace in SQLite.
+MAEDS is an independent Python engineering demonstrator for evidence-based document analysis. It runs five agents over UTF-8 TXT and Markdown files, assesses candidate claims against stored passages, and saves the decision and run trace in SQLite.
+
+## Practical motivation
+
+Preparing a tender or Request for Proposal (RFP) response requires teams to substantiate claims about their experience, certifications, and technical capabilities. One proposed application of MAEDS is to help IT and consulting teams review a tender requirement against selected company documents. Passage-level citations, separate evidence checks, and recorded release decisions could help reviewers find supporting material, spot conflicting records, and see where evidence is missing before they approve a response.
+
+The current local demonstrator illustrates this workflow on fictional documents. Tender-specific requirement tracking, certificate validation, and submission workflows are potential extensions. [Business use case and research questions](docs/TECHNICAL_REPORT.md#proposed-business-use-case)
 
 ## Install and run
 
@@ -50,13 +56,13 @@ In OpenAI mode, analysis and verification send task-relevant text to the provide
 
 ## Design and status
 
-Run the offline benchmark from the repository root with a separate output path:
+Run a fresh offline benchmark from the repository root. The runner loads [`evaluation/v1.json`](evaluation/v1.json) automatically and uses the verifier in your checkout. The dataset version is shared by both historical runs. The output filename only determines where the new JSON is written.
 
 ```powershell
 uv run --locked python -m evaluation.run --repeats 3 --output reports/reproduction-offline.json
 ```
 
-The [original evaluation](reports/EVALUATION.md) and [remediation comparison](reports/EVALUATION_REMEDIATION.md) preserve the published runs.
+Use the [v2 reproduction instructions](reports/EVALUATION_REMEDIATION.md#reproduction) to check the remediated results at the release revision. The [v1 report](reports/EVALUATION.md#reproduction) explains how to rerun the original evaluation if you have the pre-remediation source snapshot and where to find the archived results.
 
 - [Architecture](docs/ARCHITECTURE.md)
 - [Design decisions](docs/DESIGN_DECISIONS.md)

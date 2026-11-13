@@ -88,12 +88,13 @@ This is a small synthetic dataset with provisional, single-author judgments and 
 
 ## Reproduction
 
-Run from the repository root after installing the locked dependencies.
+An original v1 rerun requires a separate checkout or source snapshot containing the pre-remediation verifier (`offline_rules_v1`), the original evaluation runner, and its lockfile. The repository's first commit already contains the remediated verifier, so the required v1 source snapshot is unavailable in this Git history.
+
+If you have that snapshot, run from its root. The runner loads `evaluation/v1.json` automatically. This command writes a rerun for comparison with the original benchmark.
 
 ```powershell
 uv sync --locked
-uv run --locked python -m evaluation.run --repeats 3 --output reports/evaluation-v1-offline.json
-uv run --locked pytest -q
+uv run --locked python -m evaluation.run --repeats 3 --output .venv/reproduction-v1-offline.json
 ```
 
-The [dataset](../evaluation/v1.json) contains the case rationale and the [machine-readable results](evaluation-v1-offline.json) retain per-case predictions, evidence stances, fault outcomes, and timings.
+The [dataset](../evaluation/v1.json) contains the case rationale. The [archived v1 results](evaluation-v1-offline.json) retain per-case predictions, evidence stances, fault outcomes, and timings for inspection without a rerun. See the [remediated procedure](EVALUATION_REMEDIATION.md#reproduction) for an executable rerun from the released source.

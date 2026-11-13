@@ -36,10 +36,13 @@ The original conflict case informed the correction, so the rerun is an in-sample
 
 ## Reproduction
 
+Run from the root of a checkout of release commit `5eefd9bbbe3c281c1b68dddaf804c77ac200b31d`, which contains the remediated verifier (`offline_rules_v2`). The runner loads [`evaluation/v1.json`](../evaluation/v1.json) automatically and writes a separate v2 reproduction result.
+
 ```powershell
-uv run --locked pytest -q
-uv run --locked --extra openai pytest -q
-uv run --locked python -m evaluation.run --repeats 3 --output reports/evaluation-v2-offline.json
+uv sync --locked
+uv run --locked python -m evaluation.run --repeats 3 --output .venv/reproduction-v2-offline.json
 ```
+
+Compare the dataset digest and the verdict, evidence, and release metrics with the [archived v2 results](evaluation-v2-offline.json). Timing measurements can vary.
 
 The locked offline-cache suites returned 70 passed and 1 skipped in 7.63 seconds in the base environment, and 71 passed in 9.95 seconds with the optional adapter installed. The adapter test uses a mock. The base suite emitted the existing Starlette test transport warning.

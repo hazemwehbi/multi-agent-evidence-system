@@ -2,11 +2,27 @@
 
 ## Abstract
 
-The Multi-Agent Evidence and Decision System is a local Python demonstrator for answering questions over a bounded document collection. It combines explicit task dependencies, passage-level provenance, separate citation and semantic checks, and an auditable release decision. Its purpose is to make it possible to inspect why the application published or withheld a claim and to locate the evidence it used.
+The Multi-Agent Evidence and Decision System is an independent engineering project implemented as a local Python demonstrator for answering questions over a bounded document collection. It combines explicit task dependencies, passage-level provenance, separate citation and semantic checks, and an auditable release decision. Its purpose is to make it possible to inspect why the application published or withheld a claim and to locate the evidence it used.
 
 ## Problem and objectives
 
 A citation can point to a real passage while providing weak or contradictory support. In a multi-stage workflow, the final reader also needs to know which component selected the passage, how the claim was evaluated, and why it was eligible for release. MAEDS makes these distinctions visible using typed records, a bounded workflow, and persistent source-relative references.
+
+## Proposed business use case
+
+IT and consulting companies responding to public or commercial tenders often need to answer many requirements using records scattered across project summaries, capability statements, and certification registers. A bid team may need to establish whether a technology was used on a qualifying project, whether a documented certificate covers the required scope and dates, or whether two records describe the same capability inconsistently. Each proposed answer needs a source a reviewer can inspect, and gaps need to remain visible before submission.
+
+| Agent | Implemented responsibility | Potential tender responsibility |
+|---|---|---|
+| Coordinator | Plans one retrieval task per supplied source and schedules dependent stages. | Organize requirements into review questions and assign analysis tasks. Today a reviewer supplies each question. |
+| Research / Retrieval | Retrieves relevant passages within the run's source scope. | Find evidence in project references, capability statements, and certificate records supplied as text. |
+| Analysis | Selects retrieved excerpts as candidate claims. | Identify material that could substantiate a proposed answer to a requirement. |
+| Verification | Resolves citations and assesses support and contradictions within the retrieved evidence. | Flag conflicting versions, incomplete support, and statements that lack evidence. |
+| Synthesis / Decision | Releases eligible findings and records unresolved claims and exclusion reasons. | Present an evidence-backed assessment for bid review and flag questions that still need a decision. |
+
+IT service providers and software development companies could use this approach to review technical capability and delivery claims. Consulting firms and SMEs bidding for public or private work could use it to locate relevant project references and identify gaps before writing responses. Teams preparing compliance and technical documentation could use the same evidence trail to reconcile inconsistent records and show reviewers where each statement came from.
+
+MAEDS centers the workflow on checking individual claims, tracing citations, disclosing detected contradictions, and controlling which findings are released. This design could reduce manual evidence search and make unsupported AI-assisted statements easier to catch. Human reviewers still need to confirm that evidence is current, authoritative, and applicable to the requirement, resolve discrepancies, and approve the submission. Review effort and business outcomes remain unmeasured. The documented demonstration uses fictional records. Real tender processing, commercial deployment, and tender-specific automation remain outside the demonstrated scope.
 
 ## System design
 
@@ -30,12 +46,15 @@ Regression and integration tests exercise bounded scheduling, failure and timeou
 
 Independent human annotation remains pending. The sample is small, synthetic, and uses a controlled evidence set for semantic scoring. The repository has no matched single-agent architecture comparison. Live LLM semantic accuracy, stochastic repeatability, token use, and API costs remain unmeasured. Lexical retrieval can omit counterevidence, and rule-based conflict checks can miss aliases, implicit negation, and contextual changes. A valid trace establishes that the application recorded the stated operations. The accuracy of semantic assessments depends on the evidence and verifier.
 
-## Open research questions
+## From Practical Engineering Challenges to Research Questions
+
+A bid reviewer needs to reconstruct why a claim was released or withheld, especially when multiple agents selected and assessed its evidence. MAEDS records those steps, which makes it possible to study where provenance can be lost and whether a recorded justification reflects the evidence that actually influenced the decision. These challenges motivate further work in explainable AI (XAI), provenance, verification, explanation faithfulness, and reliable multi-agent systems.
 
 - How much does multi-agent decomposition improve evidence recall or decision quality when model, context, and call budgets are matched against a single-agent baseline?
-- How should systems calibrate abstention when evidence is incomplete, contradictory, or retrieved selectively?
+- How can systems distinguish genuine claim support from a citation that merely resolves, and detect conflicts between agents or sources when scope, dates, or entities differ?
+- How should systems justify and calibrate abstention when evidence is incomplete, contradictory, or retrieved selectively?
 - Which human annotation and adjudication protocols produce reliable claim and passage labels across domains?
-- How can provenance fidelity be tested separately from semantic correctness and user trust?
+- How can we preserve provenance across agent handoffs and test whether explanations faithfully represent observable decisions in high-stakes applications?
 
 ## Repository map
 

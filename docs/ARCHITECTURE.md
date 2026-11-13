@@ -41,7 +41,7 @@ erDiagram
 
 Run-scoped composite foreign keys prevent cross-run retrieval and claim links. A claim can trace through its analysis message and a retrieval message to the passage and its immutable source version. Verdicts and decisions live in the typed message and terminal report JSON.
 
-The CLI builds a model client from validated environment settings and issues a typed smoke request. The client bounds execution, classifies failures, validates the backend response with the caller's Pydantic schema, and exposes metadata for the execution record. Offline mode resolves an operation to a deterministic fixture. OpenAI mode delegates to a LangChain adapter that requests structured output.
+The CLI builds a model client from validated environment settings. The client bounds execution, classifies failures, validates responses against the caller's Pydantic schema, and exposes model metadata for the execution record. The offline smoke command uses a deterministic fixture. Offline document runs use deterministic passage selection and verification rules. OpenAI mode uses a LangChain adapter that requests structured output.
 
 ```mermaid
 flowchart LR
@@ -53,19 +53,19 @@ flowchart LR
     C --> F[Validated JSON report]
 ```
 
-## Milestone 2 workflow
+## Five-agent workflow
 
 ```mermaid
 flowchart LR
     C[Coordinator and runner] -->|Scoped tasks| R[Retrieval per source]
-    R -->|Fixture passages| C
+    R -->|Stored passages| C
     C -->|Passages and objective| A[Analysis]
     A -->|Candidate claim IDs and excerpts| C
     C -->|Claims and retrieved passages| V[Verification]
     C -->|Empty candidate input when corpus yields no passages| V
-    V -->|Citation checks and deferred verdicts| C
+    V -->|Citation checks and semantic verdicts| C
     C -->|Verification batch| S[Synthesis]
-    S -->|Decision and unresolved claim IDs| C
+    S -->|Decision and finding or unresolved claim IDs| C
 ```
 
 The runner validates the plan and dispatches ready tasks in bounded batches. It links result and status messages to their dispatch message, and forwards upstream results as typed messages. The JSON report contains the plan, all messages, the final decision when available, execution status, and provider metadata. Outcomes within a parallel batch are recorded in dispatch order.
@@ -93,3 +93,7 @@ The CLI hands supplied paths to the format dispatcher, which reads a bounded byt
 Verification takes the candidate claim text and the retrieved passages. It resolves each passage inside the run and compares the retrieved record to the stored passage and source slice. It then asks the configured semantic backend to assess each claim with a resolved citation against the exact passage text. The backend returns a verdict, a short explanation, and supporting and contradicting passage indexes. The verifier validates these indexes and maps them to stored references. It records mechanical citation results, semantic results, method, and model metadata separately.
 
 The synthesis stage assembles a structured decision from the verdicts. The runner recomputes the expected decision before release. The local FastAPI app submits uploads through the same parser and runner, polls persisted status, and renders approved claim text from the analysis records. Evidence links show the original stored source with the passage highlighted. The existing SQLite schema stores the new fields in the typed message and report JSON.
+
+## Applying the architecture to tender review
+
+A reviewer could turn one tender requirement into a question and supply a bounded set of relevant company records as TXT or Markdown. The existing runner would scope retrieval to those sources. Its claims, verification records, and decision would give the reviewer a passage-level trail for judging which statements to use and which gaps to investigate. The coordinator schedules work by source and dependency. Requirement extraction, requirement-to-response tracking across runs, and bid approval would need additional workflow components. [Business workflow mapping](TECHNICAL_REPORT.md#proposed-business-use-case)
