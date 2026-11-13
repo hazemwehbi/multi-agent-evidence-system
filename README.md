@@ -69,3 +69,7 @@ Use the [v2 reproduction instructions](reports/EVALUATION_REMEDIATION.md#reprodu
 - [Testing](docs/TESTING.md)
 - [Limitations](docs/LIMITATIONS.md)
 - [Technical report and repository map](docs/TECHNICAL_REPORT.md)
+
+## License
+
+MAEDS is licensed under the [MIT License](LICENSE).
