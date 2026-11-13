@@ -1,0 +1,1999 @@
+{
+  "dataset_version": "1.0.0",
+  "annotation_status": "manual reference judgments drafted by Codex; independent human review pending",
+  "environment": {
+    "python": "3.13.1",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "sqlite": "3.45.3"
+  },
+  "model": {
+    "provider": "offline",
+    "model": "deterministic-v1",
+    "timeout_seconds": 1.0,
+    "max_output_tokens": 512
+  },
+  "tokens": null,
+  "estimated_api_cost": null,
+  "metrics": {
+    "accuracy": 0.8181818181818182,
+    "macro_f1": 0.8266666666666667,
+    "per_class": {
+      "SUPPORTED": {
+        "count": 3,
+        "precision": 1.0,
+        "recall": 0.6666666666666666,
+        "f1": 0.8
+      },
+      "PARTIALLY_SUPPORTED": {
+        "count": 2,
+        "precision": 1.0,
+        "recall": 0.5,
+        "f1": 0.6666666666666666
+      },
+      "UNSUPPORTED": {
+        "count": 2,
+        "precision": 0.5,
+        "recall": 1.0,
+        "f1": 0.6666666666666666
+      },
+      "CONFLICTING": {
+        "count": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      },
+      "NOT_VERIFIABLE": {
+        "count": 2,
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0
+      }
+    },
+    "confusion_matrix": {
+      "SUPPORTED": {
+        "SUPPORTED": 2,
+        "PARTIALLY_SUPPORTED": 0,
+        "UNSUPPORTED": 1,
+        "CONFLICTING": 0,
+        "NOT_VERIFIABLE": 0
+      },
+      "PARTIALLY_SUPPORTED": {
+        "SUPPORTED": 0,
+        "PARTIALLY_SUPPORTED": 1,
+        "UNSUPPORTED": 1,
+        "CONFLICTING": 0,
+        "NOT_VERIFIABLE": 0
+      },
+      "UNSUPPORTED": {
+        "SUPPORTED": 0,
+        "PARTIALLY_SUPPORTED": 0,
+        "UNSUPPORTED": 2,
+        "CONFLICTING": 0,
+        "NOT_VERIFIABLE": 0
+      },
+      "CONFLICTING": {
+        "SUPPORTED": 0,
+        "PARTIALLY_SUPPORTED": 0,
+        "UNSUPPORTED": 0,
+        "CONFLICTING": 2,
+        "NOT_VERIFIABLE": 0
+      },
+      "NOT_VERIFIABLE": {
+        "SUPPORTED": 0,
+        "PARTIALLY_SUPPORTED": 0,
+        "UNSUPPORTED": 0,
+        "CONFLICTING": 0,
+        "NOT_VERIFIABLE": 2
+      }
+    },
+    "evidence": {
+      "citation_validity": 0.9090909090909091,
+      "resolution_success": 1.0,
+      "coverage": 0.8181818181818182,
+      "stance_precision": 1.0,
+      "stance_recall": 0.8181818181818182,
+      "unsupported_candidate_rate": 0.18181818181818182,
+      "contradiction_precision": 1.0,
+      "contradiction_recall": 1.0
+    }
+  },
+  "release": {
+    "released": {
+      "released": 2,
+      "coverage": 0.18181818181818182,
+      "correct_abstention_rate": 1.0,
+      "incorrect_abstention_rate": 0.3333333333333333,
+      "unsafe_releases": 0,
+      "unsupported_releases": 0,
+      "supported_withheld": 1,
+      "unsafe_release_rate": 0.0
+    },
+    "mechanical_only": {
+      "released": 9,
+      "coverage": 0.8181818181818182,
+      "correct_abstention_rate": 0.25,
+      "incorrect_abstention_rate": 0.0,
+      "unsafe_releases": 6,
+      "unsupported_releases": 2,
+      "supported_withheld": 0,
+      "unsafe_release_rate": 0.6666666666666666
+    },
+    "ungated": {
+      "released": 11,
+      "coverage": 1.0,
+      "correct_abstention_rate": 0.0,
+      "incorrect_abstention_rate": 0.0,
+      "unsafe_releases": 8,
+      "unsupported_releases": 2,
+      "supported_withheld": 0,
+      "unsafe_release_rate": 0.7272727272727273
+    }
+  },
+  "robustness": {
+    "repeated_case_comparisons": 22,
+    "repeat_disagreements": 0,
+    "reverse_order_disagreements": 0,
+    "latency_ms_per_pass": [
+      14.565627275839109,
+      9.744972726118498,
+      9.559245441447604,
+      9.7029636381194
+    ],
+    "faults": {
+      "failure": {
+        "id": "direct",
+        "expected": "SUPPORTED",
+        "predicted": "NOT_VERIFIABLE",
+        "expected_release": true,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [],
+        "support": [],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "The semantic verifier failed or returned an invalid assessment.",
+        "latency_ms": 10.03649999620393
+      },
+      "timeout": {
+        "id": "direct",
+        "expected": "SUPPORTED",
+        "predicted": "NOT_VERIFIABLE",
+        "expected_release": true,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [],
+        "support": [],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "The semantic verifier failed or returned an invalid assessment.",
+        "latency_ms": 1022.6974000106566
+      },
+      "malformed": {
+        "id": "direct",
+        "expected": "SUPPORTED",
+        "predicted": "NOT_VERIFIABLE",
+        "expected_release": true,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [],
+        "support": [],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "The semantic verifier failed or returned an invalid assessment.",
+        "latency_ms": 18.978199979756027
+      }
+    }
+  },
+  "cases": [
+    {
+      "id": "direct",
+      "expected": "SUPPORTED",
+      "predicted": "SUPPORTED",
+      "expected_release": true,
+      "released": true,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [
+        "a.txt"
+      ],
+      "gold_oppose": [],
+      "support": [
+        "a.txt"
+      ],
+      "oppose": [],
+      "method": "offline_rules_v2",
+      "reason": "Every claim clause matches a retrieved sentence.",
+      "latency_ms": 27.344800007995218
+    },
+    {
+      "id": "paraphrase",
+      "expected": "SUPPORTED",
+      "predicted": "UNSUPPORTED",
+      "expected_release": true,
+      "released": false,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [
+        "a.txt"
+      ],
+      "gold_oppose": [],
+      "support": [],
+      "oppose": [],
+      "method": "offline_rules_v2",
+      "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+      "latency_ms": 19.199099973775446
+    },
+    {
+      "id": "multiple",
+      "expected": "SUPPORTED",
+      "predicted": "SUPPORTED",
+      "expected_release": true,
+      "released": true,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 2,
+      "resolved": 2,
+      "exact_links": 2,
+      "gold_support": [
+        "a.txt",
+        "b.md"
+      ],
+      "gold_oppose": [],
+      "support": [
+        "a.txt",
+        "b.md"
+      ],
+      "oppose": [],
+      "method": "offline_rules_v2",
+      "reason": "Every claim clause matches a retrieved sentence.",
+      "latency_ms": 15.752100036479533
+    },
+    {
+      "id": "partial",
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": "PARTIALLY_SUPPORTED",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [
+        "a.txt"
+      ],
+      "gold_oppose": [],
+      "support": [
+        "a.txt"
+      ],
+      "oppose": [],
+      "method": "offline_rules_v2",
+      "reason": "Only some claim clauses match retrieved sentences.",
+      "latency_ms": 8.793200016953051
+    },
+    {
+      "id": "partial-paraphrase",
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": "UNSUPPORTED",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [
+        "a.txt"
+      ],
+      "gold_oppose": [],
+      "support": [],
+      "oppose": [],
+      "method": "offline_rules_v2",
+      "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+      "latency_ms": 14.457199955359101
+    },
+    {
+      "id": "irrelevant",
+      "expected": "UNSUPPORTED",
+      "predicted": "UNSUPPORTED",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [],
+      "gold_oppose": [],
+      "support": [],
+      "oppose": [],
+      "method": "offline_rules_v2",
+      "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+      "latency_ms": 14.612600032705814
+    },
+    {
+      "id": "wrong-number",
+      "expected": "UNSUPPORTED",
+      "predicted": "UNSUPPORTED",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [],
+      "gold_oppose": [
+        "a.txt"
+      ],
+      "support": [],
+      "oppose": [
+        "a.txt"
+      ],
+      "method": "offline_rules_v2",
+      "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+      "latency_ms": 13.204400020185858
+    },
+    {
+      "id": "numeric-conflict",
+      "expected": "CONFLICTING",
+      "predicted": "CONFLICTING",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [
+        "a.txt"
+      ],
+      "gold_oppose": [
+        "b.md"
+      ],
+      "support": [
+        "a.txt"
+      ],
+      "oppose": [
+        "b.md"
+      ],
+      "method": "offline_rules_v2",
+      "reason": "Retrieved passages give competing assertions in the same context.",
+      "latency_ms": 14.12720000371337
+    },
+    {
+      "id": "factual-conflict",
+      "expected": "CONFLICTING",
+      "predicted": "CONFLICTING",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [
+        "a.txt"
+      ],
+      "gold_oppose": [
+        "b.md"
+      ],
+      "support": [
+        "a.txt"
+      ],
+      "oppose": [
+        "b.md"
+      ],
+      "method": "offline_rules_v2",
+      "reason": "Retrieved passages give competing assertions in the same context.",
+      "latency_ms": 15.473700012080371
+    },
+    {
+      "id": "missing",
+      "expected": "NOT_VERIFIABLE",
+      "predicted": "NOT_VERIFIABLE",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": false,
+      "ungated": true,
+      "citations": 0,
+      "resolved": 0,
+      "exact_links": 0,
+      "gold_support": [],
+      "gold_oppose": [],
+      "support": [],
+      "oppose": [],
+      "method": "missing_evidence",
+      "reason": "No mechanically resolved citation was available.",
+      "latency_ms": 9.81109996791929
+    },
+    {
+      "id": "invalid",
+      "expected": "NOT_VERIFIABLE",
+      "predicted": "NOT_VERIFIABLE",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": false,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 0,
+      "exact_links": 0,
+      "gold_support": [],
+      "gold_oppose": [],
+      "support": [],
+      "oppose": [],
+      "method": "missing_evidence",
+      "reason": "No mechanically resolved citation was available.",
+      "latency_ms": 7.44650000706315
+    }
+  ],
+  "repeated": [
+    [
+      {
+        "id": "direct",
+        "expected": "SUPPORTED",
+        "predicted": "SUPPORTED",
+        "expected_release": true,
+        "released": true,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [],
+        "support": [
+          "a.txt"
+        ],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "Every claim clause matches a retrieved sentence.",
+        "latency_ms": 11.407500016503036
+      },
+      {
+        "id": "paraphrase",
+        "expected": "SUPPORTED",
+        "predicted": "UNSUPPORTED",
+        "expected_release": true,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [],
+        "support": [],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+        "latency_ms": 10.364499990828335
+      },
+      {
+        "id": "multiple",
+        "expected": "SUPPORTED",
+        "predicted": "SUPPORTED",
+        "expected_release": true,
+        "released": true,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 2,
+        "resolved": 2,
+        "exact_links": 2,
+        "gold_support": [
+          "a.txt",
+          "b.md"
+        ],
+        "gold_oppose": [],
+        "support": [
+          "a.txt",
+          "b.md"
+        ],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "Every claim clause matches a retrieved sentence.",
+        "latency_ms": 10.022900009062141
+      },
+      {
+        "id": "partial",
+        "expected": "PARTIALLY_SUPPORTED",
+        "predicted": "PARTIALLY_SUPPORTED",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [],
+        "support": [
+          "a.txt"
+        ],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "Only some claim clauses match retrieved sentences.",
+        "latency_ms": 9.163399983663112
+      },
+      {
+        "id": "partial-paraphrase",
+        "expected": "PARTIALLY_SUPPORTED",
+        "predicted": "UNSUPPORTED",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [],
+        "support": [],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+        "latency_ms": 8.068499970249832
+      },
+      {
+        "id": "irrelevant",
+        "expected": "UNSUPPORTED",
+        "predicted": "UNSUPPORTED",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [],
+        "gold_oppose": [],
+        "support": [],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+        "latency_ms": 9.459099965170026
+      },
+      {
+        "id": "wrong-number",
+        "expected": "UNSUPPORTED",
+        "predicted": "UNSUPPORTED",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [],
+        "gold_oppose": [
+          "a.txt"
+        ],
+        "support": [],
+        "oppose": [
+          "a.txt"
+        ],
+        "method": "offline_rules_v2",
+        "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+        "latency_ms": 8.651899988763034
+      },
+      {
+        "id": "numeric-conflict",
+        "expected": "CONFLICTING",
+        "predicted": "CONFLICTING",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [
+          "b.md"
+        ],
+        "support": [
+          "a.txt"
+        ],
+        "oppose": [
+          "b.md"
+        ],
+        "method": "offline_rules_v2",
+        "reason": "Retrieved passages give competing assertions in the same context.",
+        "latency_ms": 11.193300015293062
+      },
+      {
+        "id": "factual-conflict",
+        "expected": "CONFLICTING",
+        "predicted": "CONFLICTING",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [
+          "b.md"
+        ],
+        "support": [
+          "a.txt"
+        ],
+        "oppose": [
+          "b.md"
+        ],
+        "method": "offline_rules_v2",
+        "reason": "Retrieved passages give competing assertions in the same context.",
+        "latency_ms": 11.046200001146644
+      },
+      {
+        "id": "missing",
+        "expected": "NOT_VERIFIABLE",
+        "predicted": "NOT_VERIFIABLE",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": false,
+        "ungated": true,
+        "citations": 0,
+        "resolved": 0,
+        "exact_links": 0,
+        "gold_support": [],
+        "gold_oppose": [],
+        "support": [],
+        "oppose": [],
+        "method": "missing_evidence",
+        "reason": "No mechanically resolved citation was available.",
+        "latency_ms": 8.457200019620359
+      },
+      {
+        "id": "invalid",
+        "expected": "NOT_VERIFIABLE",
+        "predicted": "NOT_VERIFIABLE",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": false,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 0,
+        "exact_links": 0,
+        "gold_support": [],
+        "gold_oppose": [],
+        "support": [],
+        "oppose": [],
+        "method": "missing_evidence",
+        "reason": "No mechanically resolved citation was available.",
+        "latency_ms": 9.360200027003884
+      }
+    ],
+    [
+      {
+        "id": "direct",
+        "expected": "SUPPORTED",
+        "predicted": "SUPPORTED",
+        "expected_release": true,
+        "released": true,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [],
+        "support": [
+          "a.txt"
+        ],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "Every claim clause matches a retrieved sentence.",
+        "latency_ms": 9.938300005160272
+      },
+      {
+        "id": "paraphrase",
+        "expected": "SUPPORTED",
+        "predicted": "UNSUPPORTED",
+        "expected_release": true,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [],
+        "support": [],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+        "latency_ms": 9.235300007276237
+      },
+      {
+        "id": "multiple",
+        "expected": "SUPPORTED",
+        "predicted": "SUPPORTED",
+        "expected_release": true,
+        "released": true,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 2,
+        "resolved": 2,
+        "exact_links": 2,
+        "gold_support": [
+          "a.txt",
+          "b.md"
+        ],
+        "gold_oppose": [],
+        "support": [
+          "a.txt",
+          "b.md"
+        ],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "Every claim clause matches a retrieved sentence.",
+        "latency_ms": 13.557399972341955
+      },
+      {
+        "id": "partial",
+        "expected": "PARTIALLY_SUPPORTED",
+        "predicted": "PARTIALLY_SUPPORTED",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [],
+        "support": [
+          "a.txt"
+        ],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "Only some claim clauses match retrieved sentences.",
+        "latency_ms": 7.918099989183247
+      },
+      {
+        "id": "partial-paraphrase",
+        "expected": "PARTIALLY_SUPPORTED",
+        "predicted": "UNSUPPORTED",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [],
+        "support": [],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+        "latency_ms": 9.93709999602288
+      },
+      {
+        "id": "irrelevant",
+        "expected": "UNSUPPORTED",
+        "predicted": "UNSUPPORTED",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [],
+        "gold_oppose": [],
+        "support": [],
+        "oppose": [],
+        "method": "offline_rules_v2",
+        "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+        "latency_ms": 8.747000014409423
+      },
+      {
+        "id": "wrong-number",
+        "expected": "UNSUPPORTED",
+        "predicted": "UNSUPPORTED",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [],
+        "gold_oppose": [
+          "a.txt"
+        ],
+        "support": [],
+        "oppose": [
+          "a.txt"
+        ],
+        "method": "offline_rules_v2",
+        "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+        "latency_ms": 10.017699969466776
+      },
+      {
+        "id": "numeric-conflict",
+        "expected": "CONFLICTING",
+        "predicted": "CONFLICTING",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [
+          "b.md"
+        ],
+        "support": [
+          "a.txt"
+        ],
+        "oppose": [
+          "b.md"
+        ],
+        "method": "offline_rules_v2",
+        "reason": "Retrieved passages give competing assertions in the same context.",
+        "latency_ms": 10.766499966848642
+      },
+      {
+        "id": "factual-conflict",
+        "expected": "CONFLICTING",
+        "predicted": "CONFLICTING",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": true,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 1,
+        "exact_links": 1,
+        "gold_support": [
+          "a.txt"
+        ],
+        "gold_oppose": [
+          "b.md"
+        ],
+        "support": [
+          "a.txt"
+        ],
+        "oppose": [
+          "b.md"
+        ],
+        "method": "offline_rules_v2",
+        "reason": "Retrieved passages give competing assertions in the same context.",
+        "latency_ms": 9.529199975077063
+      },
+      {
+        "id": "missing",
+        "expected": "NOT_VERIFIABLE",
+        "predicted": "NOT_VERIFIABLE",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": false,
+        "ungated": true,
+        "citations": 0,
+        "resolved": 0,
+        "exact_links": 0,
+        "gold_support": [],
+        "gold_oppose": [],
+        "support": [],
+        "oppose": [],
+        "method": "missing_evidence",
+        "reason": "No mechanically resolved citation was available.",
+        "latency_ms": 8.48059996496886
+      },
+      {
+        "id": "invalid",
+        "expected": "NOT_VERIFIABLE",
+        "predicted": "NOT_VERIFIABLE",
+        "expected_release": false,
+        "released": false,
+        "mechanical_only": false,
+        "ungated": true,
+        "citations": 1,
+        "resolved": 0,
+        "exact_links": 0,
+        "gold_support": [],
+        "gold_oppose": [],
+        "support": [],
+        "oppose": [],
+        "method": "missing_evidence",
+        "reason": "No mechanically resolved citation was available.",
+        "latency_ms": 7.0244999951682985
+      }
+    ]
+  ],
+  "reversed": [
+    {
+      "id": "direct",
+      "expected": "SUPPORTED",
+      "predicted": "SUPPORTED",
+      "expected_release": true,
+      "released": true,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [
+        "a.txt"
+      ],
+      "gold_oppose": [],
+      "support": [
+        "a.txt"
+      ],
+      "oppose": [],
+      "method": "offline_rules_v2",
+      "reason": "Every claim clause matches a retrieved sentence.",
+      "latency_ms": 11.947399994824082
+    },
+    {
+      "id": "paraphrase",
+      "expected": "SUPPORTED",
+      "predicted": "UNSUPPORTED",
+      "expected_release": true,
+      "released": false,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [
+        "a.txt"
+      ],
+      "gold_oppose": [],
+      "support": [],
+      "oppose": [],
+      "method": "offline_rules_v2",
+      "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+      "latency_ms": 8.054199977777898
+    },
+    {
+      "id": "multiple",
+      "expected": "SUPPORTED",
+      "predicted": "SUPPORTED",
+      "expected_release": true,
+      "released": true,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 2,
+      "resolved": 2,
+      "exact_links": 2,
+      "gold_support": [
+        "a.txt",
+        "b.md"
+      ],
+      "gold_oppose": [],
+      "support": [
+        "a.txt",
+        "b.md"
+      ],
+      "oppose": [],
+      "method": "offline_rules_v2",
+      "reason": "Every claim clause matches a retrieved sentence.",
+      "latency_ms": 10.967099980916828
+    },
+    {
+      "id": "partial",
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": "PARTIALLY_SUPPORTED",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [
+        "a.txt"
+      ],
+      "gold_oppose": [],
+      "support": [
+        "a.txt"
+      ],
+      "oppose": [],
+      "method": "offline_rules_v2",
+      "reason": "Only some claim clauses match retrieved sentences.",
+      "latency_ms": 9.368400031235069
+    },
+    {
+      "id": "partial-paraphrase",
+      "expected": "PARTIALLY_SUPPORTED",
+      "predicted": "UNSUPPORTED",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [
+        "a.txt"
+      ],
+      "gold_oppose": [],
+      "support": [],
+      "oppose": [],
+      "method": "offline_rules_v2",
+      "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+      "latency_ms": 8.544200041797012
+    },
+    {
+      "id": "irrelevant",
+      "expected": "UNSUPPORTED",
+      "predicted": "UNSUPPORTED",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [],
+      "gold_oppose": [],
+      "support": [],
+      "oppose": [],
+      "method": "offline_rules_v2",
+      "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+      "latency_ms": 10.472900001332164
+    },
+    {
+      "id": "wrong-number",
+      "expected": "UNSUPPORTED",
+      "predicted": "UNSUPPORTED",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [],
+      "gold_oppose": [
+        "a.txt"
+      ],
+      "support": [],
+      "oppose": [
+        "a.txt"
+      ],
+      "method": "offline_rules_v2",
+      "reason": "No claim clause matched a retrieved sentence under the offline rules.",
+      "latency_ms": 9.035399998538196
+    },
+    {
+      "id": "numeric-conflict",
+      "expected": "CONFLICTING",
+      "predicted": "CONFLICTING",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [
+        "a.txt"
+      ],
+      "gold_oppose": [
+        "b.md"
+      ],
+      "support": [
+        "a.txt"
+      ],
+      "oppose": [
+        "b.md"
+      ],
+      "method": "offline_rules_v2",
+      "reason": "Retrieved passages give competing assertions in the same context.",
+      "latency_ms": 10.655299993231893
+    },
+    {
+      "id": "factual-conflict",
+      "expected": "CONFLICTING",
+      "predicted": "CONFLICTING",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": true,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 1,
+      "exact_links": 1,
+      "gold_support": [
+        "a.txt"
+      ],
+      "gold_oppose": [
+        "b.md"
+      ],
+      "support": [
+        "a.txt"
+      ],
+      "oppose": [
+        "b.md"
+      ],
+      "method": "offline_rules_v2",
+      "reason": "Retrieved passages give competing assertions in the same context.",
+      "latency_ms": 10.45120001072064
+    },
+    {
+      "id": "missing",
+      "expected": "NOT_VERIFIABLE",
+      "predicted": "NOT_VERIFIABLE",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": false,
+      "ungated": true,
+      "citations": 0,
+      "resolved": 0,
+      "exact_links": 0,
+      "gold_support": [],
+      "gold_oppose": [],
+      "support": [],
+      "oppose": [],
+      "method": "missing_evidence",
+      "reason": "No mechanically resolved citation was available.",
+      "latency_ms": 7.949799997732043
+    },
+    {
+      "id": "invalid",
+      "expected": "NOT_VERIFIABLE",
+      "predicted": "NOT_VERIFIABLE",
+      "expected_release": false,
+      "released": false,
+      "mechanical_only": false,
+      "ungated": true,
+      "citations": 1,
+      "resolved": 0,
+      "exact_links": 0,
+      "gold_support": [],
+      "gold_oppose": [],
+      "support": [],
+      "oppose": [],
+      "method": "missing_evidence",
+      "reason": "No mechanically resolved citation was available.",
+      "latency_ms": 9.28669999120757
+    }
+  ],
+  "workflow_runs": {
+    "primary": [
+      {
+        "id": "direct",
+        "status": "succeeded",
+        "steps": 6,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 27.31799997854978
+      },
+      {
+        "id": "paraphrase",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "The trial lasts six weeks.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 28.966000012587756
+      },
+      {
+        "id": "multiple",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 32.73000003537163
+      },
+      {
+        "id": "partial",
+        "status": "succeeded",
+        "steps": 4,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 22.101600014138967
+      },
+      {
+        "id": "partial-paraphrase",
+        "status": "succeeded",
+        "steps": 4,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 23.089899972546846
+      },
+      {
+        "id": "irrelevant",
+        "status": "succeeded",
+        "steps": 4,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 18.73200002592057
+      },
+      {
+        "id": "wrong-number",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 24.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 26.938099996186793
+      },
+      {
+        "id": "numeric-conflict",
+        "status": "partial",
+        "steps": 6,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt",
+          "b.md"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "CONFLICTING",
+            false
+          ],
+          [
+            "Pilot budget is 24.",
+            "CONFLICTING",
+            false
+          ]
+        ],
+        "released": 0,
+        "latency_ms": 26.91040001809597
+      },
+      {
+        "id": "factual-conflict",
+        "status": "partial",
+        "steps": 6,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt",
+          "b.md"
+        ],
+        "claims": [
+          [
+            "The pilot is approved.",
+            "CONFLICTING",
+            false
+          ],
+          [
+            "The pilot is rejected.",
+            "CONFLICTING",
+            false
+          ]
+        ],
+        "released": 0,
+        "latency_ms": 40.29560001799837
+      },
+      {
+        "id": "missing",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 21.73209999455139
+      },
+      {
+        "id": "invalid",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 21.460400021169335
+      }
+    ],
+    "repeat": [
+      {
+        "id": "direct",
+        "status": "succeeded",
+        "steps": 6,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 25.448400003369898
+      },
+      {
+        "id": "paraphrase",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "The trial lasts six weeks.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 24.184599984437227
+      },
+      {
+        "id": "multiple",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 18.897100002504885
+      },
+      {
+        "id": "partial",
+        "status": "succeeded",
+        "steps": 4,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 18.396699975710362
+      },
+      {
+        "id": "partial-paraphrase",
+        "status": "succeeded",
+        "steps": 4,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 19.783600000664592
+      },
+      {
+        "id": "irrelevant",
+        "status": "succeeded",
+        "steps": 4,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 18.67550000315532
+      },
+      {
+        "id": "wrong-number",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 24.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 23.24459998635575
+      },
+      {
+        "id": "numeric-conflict",
+        "status": "partial",
+        "steps": 6,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt",
+          "b.md"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "CONFLICTING",
+            false
+          ],
+          [
+            "Pilot budget is 24.",
+            "CONFLICTING",
+            false
+          ]
+        ],
+        "released": 0,
+        "latency_ms": 42.32820001197979
+      },
+      {
+        "id": "factual-conflict",
+        "status": "partial",
+        "steps": 6,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt",
+          "b.md"
+        ],
+        "claims": [
+          [
+            "The pilot is approved.",
+            "CONFLICTING",
+            false
+          ],
+          [
+            "The pilot is rejected.",
+            "CONFLICTING",
+            false
+          ]
+        ],
+        "released": 0,
+        "latency_ms": 27.309599972795695
+      },
+      {
+        "id": "missing",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 24.086099991109222
+      },
+      {
+        "id": "invalid",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 24.537599994800985
+      }
+    ],
+    "reversed": [
+      {
+        "id": "direct",
+        "status": "succeeded",
+        "steps": 6,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 33.48089999053627
+      },
+      {
+        "id": "paraphrase",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "The trial lasts six weeks.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 23.187500017229468
+      },
+      {
+        "id": "multiple",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 24.643900047522038
+      },
+      {
+        "id": "partial",
+        "status": "succeeded",
+        "steps": 4,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 18.909399979747832
+      },
+      {
+        "id": "partial-paraphrase",
+        "status": "succeeded",
+        "steps": 4,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 23.57680001296103
+      },
+      {
+        "id": "irrelevant",
+        "status": "succeeded",
+        "steps": 4,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 23.140299948863685
+      },
+      {
+        "id": "wrong-number",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 24.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 26.16529999068007
+      },
+      {
+        "id": "numeric-conflict",
+        "status": "partial",
+        "steps": 6,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt",
+          "b.md"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "CONFLICTING",
+            false
+          ],
+          [
+            "Pilot budget is 24.",
+            "CONFLICTING",
+            false
+          ]
+        ],
+        "released": 0,
+        "latency_ms": 29.2333000106737
+      },
+      {
+        "id": "factual-conflict",
+        "status": "partial",
+        "steps": 6,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt",
+          "b.md"
+        ],
+        "claims": [
+          [
+            "The pilot is approved.",
+            "CONFLICTING",
+            false
+          ],
+          [
+            "The pilot is rejected.",
+            "CONFLICTING",
+            false
+          ]
+        ],
+        "released": 0,
+        "latency_ms": 34.85520003596321
+      },
+      {
+        "id": "missing",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 26.346899976488203
+      },
+      {
+        "id": "invalid",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 10,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 26.20069996919483
+      }
+    ],
+    "distractor": [
+      {
+        "id": "direct",
+        "status": "succeeded",
+        "steps": 7,
+        "messages": 14,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 40.26110004633665
+      },
+      {
+        "id": "paraphrase",
+        "status": "succeeded",
+        "steps": 6,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "The trial lasts six weeks.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 35.411000018939376
+      },
+      {
+        "id": "multiple",
+        "status": "succeeded",
+        "steps": 6,
+        "messages": 14,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 27.252100000623614
+      },
+      {
+        "id": "partial",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 22.764199995435774
+      },
+      {
+        "id": "partial-paraphrase",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 24.15010001277551
+      },
+      {
+        "id": "irrelevant",
+        "status": "succeeded",
+        "steps": 5,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [],
+        "claims": [],
+        "released": 0,
+        "latency_ms": 32.63730002800003
+      },
+      {
+        "id": "wrong-number",
+        "status": "succeeded",
+        "steps": 6,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 24.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 28.889100009109825
+      },
+      {
+        "id": "numeric-conflict",
+        "status": "partial",
+        "steps": 7,
+        "messages": 14,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt",
+          "b.md"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "CONFLICTING",
+            false
+          ],
+          [
+            "Pilot budget is 24.",
+            "CONFLICTING",
+            false
+          ]
+        ],
+        "released": 0,
+        "latency_ms": 28.213500045239925
+      },
+      {
+        "id": "factual-conflict",
+        "status": "partial",
+        "steps": 7,
+        "messages": 14,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt",
+          "b.md"
+        ],
+        "claims": [
+          [
+            "The pilot is approved.",
+            "CONFLICTING",
+            false
+          ],
+          [
+            "The pilot is rejected.",
+            "CONFLICTING",
+            false
+          ]
+        ],
+        "released": 0,
+        "latency_ms": 34.96020002057776
+      },
+      {
+        "id": "missing",
+        "status": "succeeded",
+        "steps": 6,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 26.539099984802306
+      },
+      {
+        "id": "invalid",
+        "status": "succeeded",
+        "steps": 6,
+        "messages": 12,
+        "reopened_equal": true,
+        "retrieved_documents": [
+          "a.txt"
+        ],
+        "claims": [
+          [
+            "Pilot budget is 20.",
+            "SUPPORTED",
+            true
+          ]
+        ],
+        "released": 1,
+        "latency_ms": 25.292200036346912
+      }
+    ]
+  },
+  "workflow_comparison": {
+    "primary": {
+      "disagreements": 0,
+      "completion_rate": 1,
+      "mean_latency_ms": 26.38855455337431,
+      "reports_reopened_equal": 11
+    },
+    "repeat": {
+      "disagreements": 0,
+      "completion_rate": 1,
+      "mean_latency_ms": 24.26290908426216,
+      "reports_reopened_equal": 11
+    },
+    "reversed": {
+      "disagreements": 0,
+      "completion_rate": 1,
+      "mean_latency_ms": 26.340018179987304,
+      "reports_reopened_equal": 11
+    },
+    "distractor": {
+      "disagreements": 0,
+      "completion_rate": 1,
+      "mean_latency_ms": 29.66999092710797,
+      "reports_reopened_equal": 11
+    }
+  },
+  "dataset_sha256": "33d15d511b9fbea2a3f6788c74d520069c5e88ef7727877574bc226815adf1e9"
+}

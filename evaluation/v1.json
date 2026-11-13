@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "annotation_status": "manual reference judgments drafted by Codex; independent human review pending",
+  "cases": [
+    {"id":"direct","question":"What is the pilot budget?","documents":{"a.txt":"Pilot budget is 20.","noise.md":"Migratory birds return in spring."},"claim":"Pilot budget is 20.","citations":["a.txt"],"label":"SUPPORTED","support":["a.txt"],"oppose":[],"reason":"Exact statement."},
+    {"id":"paraphrase","question":"How long does the trial run?","documents":{"a.txt":"The trial lasts six weeks."},"claim":"The trial runs for six weeks.","citations":["a.txt"],"label":"SUPPORTED","support":["a.txt"],"oppose":[],"reason":"Runs for and lasts express the same duration."},
+    {"id":"multiple","question":"What are the cost and launch date?","documents":{"a.txt":"Pilot budget is 20.","b.md":"Pilot opens in May."},"claim":"Pilot budget is 20 and pilot opens in May.","citations":["a.txt","b.md"],"label":"SUPPORTED","support":["a.txt","b.md"],"oppose":[],"reason":"Both clauses have direct evidence across two passages."},
+    {"id":"partial","question":"What are the cost and launch date?","documents":{"a.txt":"Pilot budget is 20."},"claim":"Pilot budget is 20 and pilot opens in May.","citations":["a.txt"],"label":"PARTIALLY_SUPPORTED","support":["a.txt"],"oppose":[],"reason":"Budget is stated, opening month is absent."},
+    {"id":"partial-paraphrase","question":"What is the term and renewal policy?","documents":{"a.txt":"The agreement lasts two years."},"claim":"The agreement runs for two years and renews automatically.","citations":["a.txt"],"label":"PARTIALLY_SUPPORTED","support":["a.txt"],"oppose":[],"reason":"Duration is entailed, renewal is absent."},
+    {"id":"irrelevant","question":"When does the pilot open?","documents":{"a.txt":"The city has three libraries."},"claim":"Pilot opens in May.","citations":["a.txt"],"label":"UNSUPPORTED","support":[],"oppose":[],"reason":"The cited text is available and irrelevant."},
+    {"id":"wrong-number","question":"What is the pilot budget?","documents":{"a.txt":"Pilot budget is 24."},"claim":"Pilot budget is 20.","citations":["a.txt"],"label":"UNSUPPORTED","support":[],"oppose":["a.txt"],"reason":"The sole value directly contradicts the candidate."},
+    {"id":"numeric-conflict","question":"What is the pilot budget?","documents":{"a.txt":"Pilot budget is 20.","b.md":"Pilot budget is 24."},"claim":"Pilot budget is 20.","citations":["a.txt"],"label":"CONFLICTING","support":["a.txt"],"oppose":["b.md"],"reason":"Comparable sources assert different values with no precedence."},
+    {"id":"factual-conflict","question":"What is the pilot status?","documents":{"a.txt":"The pilot is approved.","b.md":"The pilot is rejected."},"claim":"The pilot is approved.","citations":["a.txt"],"label":"CONFLICTING","support":["a.txt"],"oppose":["b.md"],"reason":"Sources give mutually exclusive statuses for the same decision."},
+    {"id":"missing","question":"When does the pilot open?","documents":{"a.txt":"Pilot budget is 20."},"claim":"Pilot opens in May.","citations":[],"label":"NOT_VERIFIABLE","support":[],"oppose":[],"reason":"No evidence reference is supplied."},
+    {"id":"invalid","question":"What is the pilot budget?","documents":{"a.txt":"Pilot budget is 20."},"claim":"Pilot budget is 20.","citations":["missing.txt"],"label":"NOT_VERIFIABLE","support":[],"oppose":[],"reason":"The sole citation cannot resolve."}
+  ]
+}

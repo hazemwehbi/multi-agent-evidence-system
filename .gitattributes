@@ -1,0 +1,4 @@
+# Preserve the exact archived benchmark bytes across platforms.
+/reports/evaluation-v1-offline.json -text whitespace=cr-at-eol
+/reports/evaluation-v2-offline.json -text whitespace=cr-at-eol
+/evaluation/v1.json -text whitespace=cr-at-eol
